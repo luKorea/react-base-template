@@ -3,11 +3,6 @@ const CracoLessPlugin = require('craco-less')
 const resolvePath = (dir) => path.resolve(__dirname, dir)
 
 module.exports = {
-  devServer: {
-    proxy: {
-      '/api': 'http://localhost:3001'
-    }
-  },
   // less 配置
   plugins: [
     {
@@ -40,17 +35,18 @@ module.exports = {
       }
       return webpackConfig
     }
-  }
+  },
   // 配置代理
-  // devServer: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://localhost:8000',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //          "^/api": ''
-  //       }
-  //     }
-  //   },
-  // },
+  devServer: {
+    port: 9999,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  }
 }

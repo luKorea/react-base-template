@@ -1,6 +1,69 @@
 {
-  "name": "react-template",
+  "name": "react-electron-template",
+  "main": "electron/main.ts",
   "version": "0.1.0",
+  "author": {
+    "name": "korealu",
+    "email": "korealu@foxmail.com"
+  },
+  "description": "electron-打包",
+  "build": {
+    "appId": "lsl.first.app",
+    "productName": "ElectronApp",
+    "copyright": "Copyright © 2023 lsl",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "win": {
+      "icon": "./build/electron-icon/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "linux": {
+      "icon": "./build/electron-icon/icon.png",
+      "target": "AppImage"
+    },
+    "mac": {
+      "icon": "./build/electron-icon/icon.icns"
+    },
+    "files": [
+      "./dist",
+      "./electron",
+      "!**/node_modules/**"
+    ],
+    "asar": false,
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./build/electron-icon/icon.ico",
+      "uninstallerIcon": "./build/electron-icon/icon.ico",
+      "installerHeaderIcon": "./build/electron-icon/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
   "private": true,
   "dependencies": {
     "@craco/craco": "^7.1.0",
@@ -29,8 +92,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "craco start | electron .",
     "build": "craco build",
+    "build:electron": "craco build && electron-builder",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write .",
@@ -65,6 +129,8 @@
     "@typescript-eslint/parser": "^5.61.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "electron": "^25.2.0",
+    "electron-builder": "^24.4.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
