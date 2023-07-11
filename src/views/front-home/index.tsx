@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const FrontHomePage: FC<IProps> = () => {
-  return <HomeWrapper>FrontHomePage</HomeWrapper>
+  return <HomeWrapper>FrontHomePage-999</HomeWrapper>
 }
 
 export default memo(FrontHomePage)
