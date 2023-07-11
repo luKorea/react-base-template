@@ -1,40 +1,29 @@
-import { NotFoundWrapper } from './styled'
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { Button, Result } from 'antd'
 import { useNavigate } from 'react-router-dom'
 
-import IconNotFound from '@/assets/svg/icon-not-found'
-
-interface IErrorType {
-  code: string | number
-  errorMessage: string
-}
 interface IProps {
   children?: ReactNode
-  errorInfo?: IErrorType
 }
 
-const NotFoundPage: FC<IProps> = (props) => {
-  const { errorInfo } = props
-  const code = errorInfo?.code ?? 404
-  const errorMessage =
-    errorInfo?.errorMessage ?? 'Sorry, the page you visited does not exist.'
+const NotFound: FC<IProps> = () => {
   const navigate = useNavigate()
   function goPage() {
     navigate('/')
   }
   return (
-    <NotFoundWrapper>
-      <div className="img">
-        <IconNotFound />
-      </div>
-      <div className="error-code">{code}</div>
-      <div className="error-message">{errorMessage}</div>
-      <div className="error-btn" onClick={() => goPage()}>
-        Back Home
-      </div>
-    </NotFoundWrapper>
+    <Result
+      status="404"
+      title="404"
+      subTitle="Sorry, the page you visited does not exist."
+      extra={
+        <Button type="primary" onClick={() => goPage()}>
+          Back Home
+        </Button>
+      }
+    />
   )
 }
 
-export default memo(NotFoundPage)
+export default memo(NotFound)
