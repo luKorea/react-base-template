@@ -1,5 +1,4 @@
-/* eslint-disable no-async-promise-executor */
-import { getStorage } from '@/utils/storage'
+import { localCache } from '@/utils'
 import { createSlice } from '@reduxjs/toolkit'
 
 interface IDataType {
@@ -16,8 +15,8 @@ const userReducer = createSlice({
   },
   reducers: {
     setLocalDataAction(state: IDataType) {
-      const token = getStorage('token')
-      const userInfo = getStorage('userInfo')
+      const token = localCache.getCache('token')
+      const userInfo = localCache.getCache('userInfo')
       if (token && userInfo) {
         console.log('用户已经登录')
         state.token = token

@@ -1,16 +1,23 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import { HashRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
 import 'normalize.css'
-import { HashRouter } from 'react-router-dom'
+import './assets/css/common.less'
+
+import App from './App'
+import store from './store'
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <Suspense fallback="">
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </Suspense>
+    <Provider store={store}>
+      <Suspense fallback="">
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </Suspense>
+    </Provider>
   </React.StrictMode>
 )
