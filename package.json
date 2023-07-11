@@ -63,6 +63,7 @@
     "@types/underscore": "^1.11.5",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
+    "babel-plugin-styled-components-px2vw-8-plugin": "^1.0.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.41.0",
@@ -70,6 +71,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^2.8.8"
   },
   "config": {
