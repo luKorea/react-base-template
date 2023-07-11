@@ -2,7 +2,6 @@
 const { app, protocol, BrowserWindow, globalShortcut } = require('electron')
 // 需在当前文件内开头引入 Node.js 的 'path' 模块
 const path = require('path')
-const isDev = require('electron-is-dev')
 
 app.commandLine.appendSwitch('--ignore-certificate-errors', 'true')
 protocol.registerSchemesAsPrivileged([
@@ -29,7 +28,7 @@ const createWindow = () => {
     }
   })
   win.setMenu(null)
-  if (!isDev) {
+  if (app.isPackaged) {
     win.loadURL(`file://${path.join(__dirname, '../dist/index.html')}`)
   } else {
     win.webContents.loadURL(`http://localhost:9999/`)

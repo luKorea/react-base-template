@@ -31,7 +31,7 @@ module.exports = {
         ...webpackConfig.output,
         path: path.resolve(__dirname, 'dist'),
         // 这里根据项目需求更改
-        publicPath: process.env.NODE_ENV === 'production' ? '' : ''
+        publicPath: process.env.NODE_ENV === 'production' ? './' : ''
       }
       return webpackConfig
     }
