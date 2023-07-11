@@ -14,4 +14,4 @@ baseball=$(
 cd "$baseball" || exit
 git add .
 npm run commit
-git push origin
+git push origin electron
