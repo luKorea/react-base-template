@@ -1,6 +1,8 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 
+import styleStrToObj from './utils'
+
 interface IProps {
   children?: ReactNode
 }
