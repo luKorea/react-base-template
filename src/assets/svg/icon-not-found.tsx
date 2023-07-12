@@ -10,8 +10,9 @@ interface IProps {
 const IconNotFound: FC<IProps> = () => {
   return (
     <svg
-      width="362"
-      height="362"
+      style={styleStrToObj(
+        `height: 100%; width: 100%; display: block; fill: currentcolor;`
+      )}
       viewBox="0 0 362 362"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

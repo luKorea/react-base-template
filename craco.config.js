@@ -34,6 +34,20 @@ module.exports = {
       }
     }
   },
+  babel: {
+    plugins: [
+      [
+        'babel-plugin-styled-components-px2vw-8-plugin',
+        {
+          unitToConvert: 'px', // 需要转换的单位，默认为"px"
+          viewportWidth: 375, // 设计稿的视口宽度
+          unitPrecision: 6, // 单位转换后保留的精度
+          propList: ['*'], // 能转化为vw的属性列表
+          transformRuntime: true // 设置 transformation:true 之后，可以转换被字符串模板嵌套的字符串表达式
+        }
+      ]
+    ]
+  },
   // less 配置
   plugins: [
     {
