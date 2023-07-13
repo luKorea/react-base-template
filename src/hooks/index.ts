@@ -1,5 +1,5 @@
-export * from './useScrollTop'
+export * from './use-scroll-top'
 export * from './use-scroll'
 export * from './use-router'
-export * from './useStore'
+export * from './use-store'
 export * from './use-title'
