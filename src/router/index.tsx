@@ -15,7 +15,15 @@ const routes: RouteObject[] = [
   },
   {
     path: '*',
-    element: <NotFound />
+    element: (
+      <NotFound
+        resultType={{
+          title: '404',
+          status: '404',
+          subTitle: 'Sorry, the page you visited does not exist.'
+        }}
+      />
+    )
   }
 ]
 
