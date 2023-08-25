@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+.idea
+
 # production
 /dist
 /dist_electron
