@@ -3,6 +3,8 @@ import type { FC, ReactNode } from 'react'
 import { HomeWrapper } from './styled'
 import Skeleton from '@/base-ui/skeleton'
 
+import { Button } from '@arco-design/web-react'
+
 interface IProps {
   children?: ReactNode
 }
@@ -12,7 +14,7 @@ const FrontHomePage: FC<IProps> = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 1000)
     return () => {
       clearTimeout(timer)
     }
@@ -20,7 +22,11 @@ const FrontHomePage: FC<IProps> = () => {
   return (
     <>
       <Skeleton loading={loading} animate={true}></Skeleton>
-      {!loading && <HomeWrapper>FrontHomePage</HomeWrapper>}
+      {!loading && (
+        <HomeWrapper>
+          <Button type="primary">测试</Button>
+        </HomeWrapper>
+      )}
     </>
   )
 }

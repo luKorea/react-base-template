@@ -3,6 +3,26 @@ const CracoLessPlugin = require('craco-less')
 const resolvePath = (dir) => path.resolve(__dirname, dir)
 
 module.exports = {
+  babel: {
+    plugins: [
+      [
+        'import',
+        {
+          libraryName: '@arco-design/web-react',
+          camel2DashComponentName: false,
+          style: true // 样式按需加载
+        }
+      ]
+      // [
+      //   'import',
+      //   {
+      //     libraryName: '@arco-design/web-react/icon',
+      //     libraryDirectory: 'react-icon',
+      //     camel2DashComponentName: false
+      //   }
+      // ]
+    ]
+  },
   // less 配置
   plugins: [
     {
