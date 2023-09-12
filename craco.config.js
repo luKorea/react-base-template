@@ -2,6 +2,8 @@ const path = require('path')
 const CracoLessPlugin = require('craco-less')
 const resolvePath = (dir) => path.resolve(__dirname, dir)
 
+const setting = require('./src/settings.json')
+
 module.exports = {
   babel: {
     plugins: [
@@ -12,15 +14,16 @@ module.exports = {
           camel2DashComponentName: false,
           style: true // 样式按需加载
         }
+      ],
+      [
+        'import',
+        {
+          libraryName: '@arco-design/web-react/icon',
+          libraryDirectory: 'react-icon',
+          camel2DashComponentName: false
+        },
+        'second'
       ]
-      // [
-      //   'import',
-      //   {
-      //     libraryName: '@arco-design/web-react/icon',
-      //     libraryDirectory: 'react-icon',
-      //     camel2DashComponentName: false
-      //   }
-      // ]
     ]
   },
   // less 配置
@@ -31,7 +34,8 @@ module.exports = {
         lessLoaderOptions: {
           lessOptions: {
             modifyVars: {
-              '@primary-color': '#1DA57A'
+              // 修改 arco 主题颜色
+              'arcoblue-6': setting.themeColor
             },
             javascriptEnabled: true
           }
